@@ -20,7 +20,7 @@ class GearContainer:
             n = element.name
             for ref in self.reference_list:
                 if n == ref:
-                    self.element_container.append(element)
+                    self.add_Element(element)
                     break
 
     def add_Element(self, element: object) -> None:
@@ -47,3 +47,35 @@ class GearContainer:
             "description": self.description,
             "element_references": self.extract_Element_References_List(),
         }
+
+    def __str__(self) -> str:
+        return f"{self.name} | '{self.description}' | {self.extract_Element_References_List()}"
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
+    def __eq__(self, other: object) -> bool:
+        return self.name == other.name
+
+    def __hash__(self) -> int:
+        return hash(self.name)
+
+
+    def get_Category_Dicts(self) -> list[dict]:
+        """Return elements divided by category in separate dict"""
+        out = []
+        for element in self.element_container:
+            
+            newCategory = True
+            for categoryDict in out:
+                if categoryDict["category"] == element.category.name:
+                    newCategory = False
+                    categoryDict["elements"].append(element)
+                    categoryDict["category_grams"] += element.grams
+            
+            if newCategory is True:
+                out.append({"category": element.category.name, "category_grams": element.grams, "elements": [element]})
+
+        return out
+
+            

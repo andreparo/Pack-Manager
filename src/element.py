@@ -1,4 +1,4 @@
-from src.category import Category
+from category import Category
 
 
 class Element:
@@ -12,7 +12,7 @@ class Element:
         *,
         description: str = "",
         base: bool = True,
-        wearable: bool = False
+        wearable: bool = False,
     ):
         """Element constructor"""
         self.name: str = name
@@ -33,3 +33,22 @@ class Element:
             "base": self.base,
             "wearable": self.wearable,
         }
+
+    def __str__(self) -> str:
+        opt = "|"
+        if self.base is True:
+            opt = opt + " base |"
+        if self.wearable is True:
+            opt = opt + " wearable |"
+        return (
+            f"{self.name} | {self.category} | {self.grams} | {self.description} {opt}"
+        )
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
+    def __eq__(self, other: object) -> bool:
+        return self.name == other.name
+
+    def __hash__(self) -> int:
+        return hash(self.name)

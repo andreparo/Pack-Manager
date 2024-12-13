@@ -1,0 +1,90 @@
+Grid {
+    grid-size: 2 1;
+    grid-gutter: 1;
+    keyline: thin #0055a5;
+    
+}
+
+VerticalScroll {
+    content-align: left top;
+    overflow-x: scroll;
+}
+
+/*  debugging only
+Label {
+    border: inner;
+}
+*/
+
+
+
+.delete_button {
+    max-width: 3;
+    max-height: 2;
+    min-height: 1;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    border: none;
+
+}
+
+.move_button {
+    max-width: 3;
+    max-height: 2;
+    min-height: 1;
+    margin: 0 0 0 1 ;
+    text-align: center;
+    padding: 0;
+    border: none;
+
+}
+
+#left_container_name {
+    width: 100%;
+    text-style: bold;
+
+}
+Vertical {
+    height: auto;
+    margin: 1;
+
+}
+
+.category_frame{
+    height: auto;
+    margin: 0 0 0 0;
+    align-vertical: top;
+}
+
+.element_frame{
+    margin: 0 0 0 0;
+    align-vertical: top;
+
+}
+
+
+.spacer1 {
+
+    height: 10;
+}
+
+.vertical_scroll_row {
+    height: 15h;
+}
+
+
+.container_buttons_frame_vertical {
+    height: auto;
+    content-align: center top;
+}
+
+.change_container_button {
+    width: 100%;
+    max-height: 4;
+}
+
+.change_container_button {
+    height: 6;
+    margin: 1;
+}
