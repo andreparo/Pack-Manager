@@ -15,13 +15,21 @@ class Element:
         wearable: bool = False
     ):
         """Element constructor"""
-
         self.name: str = name
         self.grams: int = grams
+        self.category: Category = category
+        self.description: str = description
         self.base: bool = base
         self.wearable: bool = wearable
         self.worn: bool = False
 
-
-    
-    to_Json
+    def to_Json(self) -> dict:
+        """Return json dict used to serailize and reinitialize object"""
+        return {
+            "name": self.name,
+            "grams": self.grams,
+            "category": self.category.value,
+            "description": self.description,
+            "base": self.base,
+            "wearable": self.wearable,
+        }
